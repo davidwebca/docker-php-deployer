@@ -3,6 +3,9 @@
 # 
 # It is an Alpine-Linux image in the background,
 # so we can install pretty much anything on it
+# 
+# libssh2 is needed for git-ftp, git overrides it
+# so we need to install curl last apparently
 FROM php:8.0.25-cli-alpine
 MAINTAINER davidwebca info@davidweb.ca
 
@@ -11,7 +14,6 @@ RUN apk update --no-cache \
     && apk upgrade --no-cache \
     && apk add --no-cache \
             bash \
-            curl \
             git \
             make \
             rsync \
@@ -22,7 +24,10 @@ RUN apk update --no-cache \
             tzdata \
             libstdc++ \
             libgcc \
-    && update-ca-certificates \ 
+    && wget https://github.com/moparisthebest/static-curl/releases/latest/download/curl-amd64 \ 
+    && chmod +x curl-amd64 \ 
+    && mv curl-amd64 /usr/bin/curl \ 
+    && update-ca-certificates \
     && rm -rf /var/cache/apk/*
 
 # Install Composer

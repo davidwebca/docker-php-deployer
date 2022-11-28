@@ -25,6 +25,7 @@ Here's the full list of dependencies installed:
 - [ ] Provide bitbucket-pipeline.yml example
 - [ ] Tag dynamically from upstream PHP version to allow selecting different PHP versions
 - [ ] Validate if all installed dependencies are necessary (ex.: tzdata - since I've based this image on multiple others, I fear I have created a Frankeinsein and still need to validate that everything is necessary)
+- [ ] Remove static-curl dependency (--with-libssh2 is now unsupported on apk get curl)
 
 ## Bitbucket Pipeline example
 Soon
