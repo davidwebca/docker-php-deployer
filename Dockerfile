@@ -41,3 +41,5 @@ RUN git clone https://github.com/git-ftp/git-ftp.git /opt/git-ftp \
     && git checkout "$tag" \
     && make install \
     && rm -rf /opt/git-ftp
+
+CMD ["bash"]
