@@ -31,7 +31,7 @@ RUN apk update --no-cache \
     && rm -rf /var/cache/apk/*
 
 # Install Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=2.2.9
 
 # Install Node and Yarn via n (since Alpine doesn't have all available versions through apk)
 # Read: https://github.com/tj/n/issues/648
